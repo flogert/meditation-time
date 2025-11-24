@@ -34,7 +34,9 @@ const app = () => {
     timeSelect.forEach(option => {
         option.addEventListener('click', function() {
             fakeDuration = this.getAttribute('data-time');
-            timeDisplay.textContent = `${Math.floor(fakeDuration / 60)}: ${Math.floor(fakeDuration % 60)}`
+            let seconds = Math.floor(fakeDuration % 60);
+            let minutes = Math.floor(fakeDuration / 60);
+            timeDisplay.textContent = `${minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
         })
     })
 
@@ -61,7 +63,7 @@ const app = () => {
         let progress = outlineLength - (currentTime / fakeDuration) * outlineLength;
         outline.style.strokeDashoffset = progress;
 
-        timeDisplay.textContent = `${minutes}:${seconds}`;
+        timeDisplay.textContent = `${minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
 
         if(currentTime >= fakeDuration) {
             song.pause();
