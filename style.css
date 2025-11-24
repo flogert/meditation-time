@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Nunito', sans-serif;
 }
 
 body {
@@ -41,11 +41,11 @@ video {
 h1 {
     grid-column: 1 / -1;
     grid-row: 1 / 2;
-    color: white;
-    font-size: 3rem;
-    font-weight: 300;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
-    letter-spacing: 2px;
+    color: #fffbf0; /* Warm white */
+    font-size: 3.5rem;
+    font-weight: 700;
+    text-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    letter-spacing: 1px;
     margin-top: 20px;
 }
 
@@ -55,28 +55,30 @@ h1 {
     grid-row: 2 / 3;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 25px;
     align-items: center;
 }
 
 .time-select button {
-    color: white;
-    width: 150px;
-    padding: 15px;
-    background: rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #fffbf0;
+    width: 160px;
+    padding: 18px;
+    background: rgba(255, 245, 238, 0.15); /* Warm transparent */
+    border: 2px solid rgba(255, 255, 255, 0.3);
     cursor: pointer;
-    border-radius: 10px;
-    font-size: 1.1rem;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(5px);
+    border-radius: 30px; /* Rounded corners */
+    font-size: 1.2rem;
+    font-weight: 600;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy transition */
+    backdrop-filter: blur(8px);
 }
 
 .time-select button:hover {
-    background: white;
-    color: #333;
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    background: #fffbf0;
+    color: #5d4037; /* Warm brown */
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    border-color: #fffbf0;
 }
 
 /* Player (Center) */
@@ -97,38 +99,42 @@ h1 {
     left: 50%;
     transform: translate(-50%, -50%) rotate(-90deg);
     pointer-events: none;
-    height: 300px; /* Fixed height for better control */
-    width: 300px;
+    height: 350px;
+    width: 350px;
 }
 
 .track-outline circle {
-    stroke: rgba(255, 255, 255, 0.2);
+    stroke: rgba(255, 255, 255, 0.15);
+    stroke-width: 20px;
 }
 
 .moving-outline circle {
-    stroke: #fff;
+    stroke-linecap: round; /* Rounded ends for the progress bar */
+    filter: drop-shadow(0 0 5px rgba(255, 138, 101, 0.6)); /* Glow effect */
     transition: stroke-dashoffset 0.1s linear;
 }
 
 .play {
-    width: 80px;
-    height: 80px;
+    width: 90px;
+    height: 90px;
     cursor: pointer;
     z-index: 2;
-    filter: drop-shadow(0 0 10px rgba(0,0,0,0.5));
-    transition: transform 0.2s ease;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+    transition: transform 0.3s ease;
+    opacity: 0.9;
 }
 
 .play:hover {
-    transform: scale(1.1);
+    transform: scale(1.15);
+    opacity: 1;
 }
 
 .time-display {
     position: absolute;
-    bottom: 10%;
-    color: white;
-    font-size: 3rem;
-    font-weight: 100;
+    bottom: 12%;
+    color: #fffbf0;
+    font-size: 3.5rem;
+    font-weight: 600;
     text-shadow: 0 2px 10px rgba(0,0,0,0.3);
 }
 
@@ -138,22 +144,23 @@ h1 {
     grid-row: 2 / 3;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-    padding: 20px;
-    background: rgba(0, 0, 0, 0.2);
-    border-radius: 20px;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    gap: 20px;
+    padding: 30px;
+    background: rgba(255, 245, 238, 0.1);
+    border-radius: 30px;
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
 }
 
 .sound-picker button {
     border: none;
-    background: transparent;
+    background: rgba(255, 255, 255, 0.05);
     cursor: pointer;
-    width: 60px;
-    height: 60px;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
-    padding: 10px;
+    padding: 12px;
     transition: all 0.3s ease;
     display: flex;
     justify-content: center;
@@ -161,14 +168,15 @@ h1 {
 }
 
 .sound-picker button:hover {
-    background: rgba(255, 255, 255, 0.2);
-    transform: scale(1.1);
+    background: rgba(255, 255, 255, 0.25);
+    transform: scale(1.15) rotate(5deg);
 }
 
 .sound-picker button img {
     width: 100%;
     height: 100%;
-    opacity: 0.8;
+    opacity: 0.9;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
 }
 
 .sound-picker button:hover img {
