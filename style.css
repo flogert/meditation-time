@@ -42,11 +42,13 @@ h1 {
     grid-column: 1 / -1;
     grid-row: 1 / 2;
     color: #fffbf0; /* Warm white */
-    font-size: 3.5rem;
-    font-weight: 700;
+    font-family: 'Lobster', cursive;
+    font-size: 4.5rem;
+    font-weight: 400;
     text-shadow: 0 4px 15px rgba(0,0,0,0.4);
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     margin-top: 20px;
+    transform: rotate(-2deg);
 }
 
 /* Time Selection (Left Side) */
