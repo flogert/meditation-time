@@ -129,27 +129,29 @@ video {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 120px;
-  height: 120px;
+  width: 140px;
+  height: 140px;
   z-index: 12;
-  margin-top: 32px;
-  box-shadow: 0 8px 32px rgba(255,138,101,0.18), 0 2px 8px #fff inset;
-  border-radius: 24px;
-  background: rgba(255,255,255,0.08);
+  margin-top: 40px;
+  box-shadow: 0 12px 36px rgba(255,138,101,0.22), 0 2px 12px #fff inset;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #fff8f3 60%, #ffe0c7 100%);
+  border: 2px solid #ff8a65;
+  transition: box-shadow 0.2s cubic-bezier(.23,1,.32,1.1), background 0.2s;
 }
 
 .player-container::before {
   content: '';
   position: absolute;
-  top: 8px;
+  top: 12px;
   left: 50%;
   transform: translateX(-50%);
-  width: 110px;
-  height: 110px;
+  width: 116px;
+  height: 116px;
   clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
-  background: linear-gradient(180deg, rgba(255, 214, 231, 0.96), rgba(255, 138, 101, 0.96));
-  border-radius: 22px;
-  box-shadow: 0 10px 30px rgba(255, 138, 101, 0.20), inset 0 -6px 18px rgba(255, 255, 255, 0.12);
+  background: linear-gradient(180deg, rgba(255,214,231,0.98), rgba(255,138,101,0.98));
+  border-radius: 32px;
+  box-shadow: 0 10px 30px rgba(255,138,101,0.18), 0 2px 8px #fff inset;
   z-index: 0;
 }
 
@@ -177,17 +179,22 @@ video {
 .play {
   position: relative;
   z-index: 2;
-  width: 56px;
-  height: 56px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
-  background: #fff;
+  background: linear-gradient(135deg, #fff, #ffe0c7 80%);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   box-shadow: 0 8px 24px rgba(255,138,101,0.18);
-  transition: transform .25s cubic-bezier(.23,1,.32,1.1);
   border: 2px solid #ff8a65;
+  transition: transform .22s cubic-bezier(.23,1,.32,1.1), background 0.2s;
+}
+.play:hover, .play:focus {
+  background: linear-gradient(135deg, #ffe0c7 40%, #ffd6e0 100%);
+  transform: scale(1.08);
+  box-shadow: 0 16px 40px rgba(255,138,101,0.22);
 }
 
 .play:active {
@@ -195,11 +202,15 @@ video {
 }
 
 .time-display {
-  margin-top: 8px;
+  margin-top: 12px;
   z-index: 2;
   color: #ff8a65;
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 1.2rem;
+  background: rgba(255,255,255,0.7);
+  border-radius: 8px;
+  padding: 4px 16px;
+  box-shadow: 0 2px 8px rgba(255,138,101,0.08);
 }
 
 /* Sound picker (right) */
