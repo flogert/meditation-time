@@ -1,3 +1,41 @@
+/* =====================
+   Top Bar Layout
+====================== */
+.top-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  background: rgba(255,255,255,0.18);
+  box-shadow: 0 2px 16px rgba(255,138,101,0.10);
+  z-index: 20;
+  padding: 0;
+}
+.top-bar-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 8px 0 0 0;
+}
+.top-controls {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 0;
+  padding: 0 16px 8px 16px;
+}
+.logo-title {
+  position: static;
+  margin-bottom: 8px;
+  top: unset;
+  left: unset;
+  transform: none;
+  z-index: 21;
+}
 
 /* =====================
    Reset & Base Styles
@@ -104,6 +142,7 @@ video {
 /* =====================
    Play/Pause Button
 ====================== */
+/* Play button as triangle */
 .play {
   position: relative;
   z-index: 2;
@@ -120,10 +159,17 @@ video {
   border: none;
   outline: none;
 }
-
 .play:active { transform: scale(.98); }
-
-/* Rectangle (pause) icon when paused */
+.play::before {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  border-left: 18px solid #ff8a65;
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+  margin-left: 4px;
+}
 .play.paused::before {
   border: none;
   width: 18px;
@@ -162,14 +208,26 @@ video {
    Responsive: mobile adjustments
 ====================== */
 @media (max-width: 900px) {
-  .logo-title { font-size: 1.1rem; top: 14px; }
-  .top-controls { top: 72px; padding: 0 12px; }
-  .player-container { width: 84px; height: 84px; border-radius: 22px; }
-  .player-container::before { width: 74px; height: 74px; border-radius: 18px; }
-  .player-container svg { height: 110px; width: 110px; }
-  .play { width: 36px; height: 36px; }
-  .time-select button { width: 72px; padding: 6px; font-size: .8rem; }
-  .sound-picker button { width: 36px; height: 36px; }
+  .top-bar-inner {
+    flex-direction: column;
+    padding: 4px 0 0 0;
+  }
+  .logo-title {
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+    padding: 0 4px;
+  }
+  .top-controls {
+    grid-template-columns: 1fr auto 1fr;
+    padding: 0 4px 4px 4px;
+  }
+  .player-container { width: 70px; height: 70px; border-radius: 18px; }
+  .player-container::before { width: 60px; height: 60px; border-radius: 12px; }
+  .player-container svg { height: 60px; width: 60px; }
+  .play { width: 32px; height: 32px; }
+  .play::before { border-left: 12px solid #ff8a65; border-top: 8px solid transparent; border-bottom: 8px solid transparent; }
+  .time-select button { width: 54px; padding: 4px; font-size: .7rem; }
+  .sound-picker button { width: 28px; height: 28px; }
 }
 
 /* =====================

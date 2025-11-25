@@ -12,61 +12,64 @@
     <script src="./app.js" defer></script>
 </head>
 <body>
-    <h1 class="logo-title">Meditation Time</h1>
     <div class="app">
         <div class="vid-container">
             <video loop>
                 <source src="./video/rain.mp4" type="video/mp4" />
             </video>
         </div>
-
-        <div class="top-controls">
-            <div class="time-select">
-                <button data-time="120">2 Minutes</button>
-                <button data-time="300">5 Minutes</button>
-                <button data-time="600">10 Minutes</button>
-            </div>
-            <div class="player-container">
-                <audio class="song">
-                    <source src="./sounds/rain.mp3" />
-                </audio>
-                <button class="play" aria-label="Play/Pause"></button>
-                <svg class="track-outline" width="453" height="453" viewBox="0 0 453 453" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="226.5" cy="226.5" r="216.5" stroke="white" stroke-width="20"/>
-                </svg>
-                <svg class="moving-outline" width="453" height="453" viewBox="0 0 453 453" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="226.5" cy="226.5" r="216.5" stroke="#ff8a65" stroke-width="20"/>
-                </svg>
-                <h3 class="time-display">10:00</h3>
-            </div>
-            <div class="sound-picker">
-                <button data-sound="./sounds/city.mp3" data-video="./video/city.mp4">
-                    <img src="./svg/city.svg" alt="city">
-                </button>
-                <button data-sound="./sounds/cafe.mp3" data-video="./video/cafe.mp4">
-                    <img src="./svg/cafe.svg" alt="cafe">
-                </button>
-                <button data-sound="./sounds/rain.mp3" data-video="./video/rain.mp4">
-                    <img src="./svg/rain.svg" alt="rain">
-                </button>
-                <button data-sound="./sounds/beach.mp3" data-video="./video/beach.mp4">
-                    <img src="./svg/beach.svg" alt="beach">
-                </button>
-                <button data-sound="./sounds/forest.mp3" data-video="./video/forest.mp4">
-                    <img src="./svg/forest.svg" alt="forest">
-                </button>
-                <button data-sound="./sounds/snow.mp3" data-video="./video/snow.mp4">
-                    <img src="./svg/snow.svg" alt="snow">
-                </button>
-                <button data-sound="./sounds/piano.mp3" data-video="./video/piano.mp4">
-                    <img src="./svg/piano.svg" alt="piano">
-                </button>
-                <button data-sound="./sounds/guitar.wav" data-video="./video/guitar.mp4">
-                    <img src="./svg/guitar.svg" alt="guitar">
-                </button>
-                <button data-sound="./sounds/violin.mp3" data-video="./video/violin.mp4">
-                    <img src="./svg/violin.svg" alt="violin">
-                </button>
+        <div class="top-bar">
+            <div class="top-bar-inner">
+                <h1 class="logo-title">Meditation Time</h1>
+                <div class="top-controls">
+                    <div class="time-select">
+                        <button data-time="120">2 Minutes</button>
+                        <button data-time="300">5 Minutes</button>
+                        <button data-time="600">10 Minutes</button>
+                    </div>
+                    <div class="player-container">
+                        <audio class="song">
+                            <source src="./sounds/rain.mp3" />
+                        </audio>
+                        <button class="play" aria-label="Play/Pause"></button>
+                        <svg class="track-outline" width="453" height="453" viewBox="0 0 453 453" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="226.5" cy="226.5" r="216.5" stroke="white" stroke-width="20"/>
+                        </svg>
+                        <svg class="moving-outline" width="453" height="453" viewBox="0 0 453 453" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="226.5" cy="226.5" r="216.5" stroke="#ff8a65" stroke-width="20"/>
+                        </svg>
+                        <h3 class="time-display">10:00</h3>
+                    </div>
+                    <div class="sound-picker">
+                        <button data-sound="./sounds/city.mp3" data-video="./video/city.mp4">
+                            <img src="./svg/city.svg" alt="city">
+                        </button>
+                        <button data-sound="./sounds/cafe.mp3" data-video="./video/cafe.mp4">
+                            <img src="./svg/cafe.svg" alt="cafe">
+                        </button>
+                        <button data-sound="./sounds/rain.mp3" data-video="./video/rain.mp4">
+                            <img src="./svg/rain.svg" alt="rain">
+                        </button>
+                        <button data-sound="./sounds/beach.mp3" data-video="./video/beach.mp4">
+                            <img src="./svg/beach.svg" alt="beach">
+                        </button>
+                        <button data-sound="./sounds/forest.mp3" data-video="./video/forest.mp4">
+                            <img src="./svg/forest.svg" alt="forest">
+                        </button>
+                        <button data-sound="./sounds/snow.mp3" data-video="./video/snow.mp4">
+                            <img src="./svg/snow.svg" alt="snow">
+                        </button>
+                        <button data-sound="./sounds/piano.mp3" data-video="./video/piano.mp4">
+                            <img src="./svg/piano.svg" alt="piano">
+                        </button>
+                        <button data-sound="./sounds/guitar.wav" data-video="./video/guitar.mp4">
+                            <img src="./svg/guitar.svg" alt="guitar">
+                        </button>
+                        <button data-sound="./sounds/violin.mp3" data-video="./video/violin.mp4">
+                            <img src="./svg/violin.svg" alt="violin">
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
