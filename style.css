@@ -109,7 +109,7 @@ video {
   z-index: 2;
   width: 48px;
   height: 48px;
-  border-radius: 50%;
+  border-radius: 8px;
   background: #fff;
   display: inline-flex;
   align-items: center;
@@ -120,20 +120,19 @@ video {
   border: none;
   outline: none;
 }
-.play:active { transform: scale(.98); }
 
-/* Triangle (play) icon using pseudo-element */
+  /* Rectangle pause icon using pseudo-element */
 .play::before {
   content: '';
   display: block;
-  width: 0;
-  height: 0;
-  border-left: 18px solid #ff8a65;
-  border-top: 12px solid transparent;
-  border-bottom: 12px solid transparent;
-  margin-left: 4px;
-  transition: border 0.2s;
+  width: 18px;
+  height: 24px;
+  background:
+    linear-gradient(90deg, #ff8a65 40%, transparent 40%, transparent 60%, #ff8a65 60%);
+  border-radius: 3px;
 }
+
+.play:active { transform: scale(.98); }
 
 /* Rectangle (pause) icon when paused */
 .play.paused::before {
