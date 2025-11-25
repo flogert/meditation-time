@@ -1,93 +1,3 @@
-/* =====================
-   Top Bar Layout
-====================== */
-.top-bar {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 64px;
-  background: rgba(255,255,255,0.85);
-  box-shadow: 0 2px 16px rgba(255,138,101,0.10);
-  display: flex;
-  align-items: center;
-  z-index: 20;
-  padding: 0 18px;
-}
-
-.top-bar .top-controls {
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  align-items: center;
-  gap: 0;
-  position: static;
-  top: unset;
-  left: unset;
-  padding: 0;
-  background: none;
-  box-shadow: none;
-}
-
-.top-bar .logo-title {
-  position: static;
-  transform: none;
-  font-size: 1.6rem;
-  padding: 0 16px;
-  background: linear-gradient(90deg, #ff8a65 0%, #ffd6e0 50%, #ff8a65 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 0 2px 8px rgba(255,138,101,0.10);
-  animation: logoGradientMove 2.5s linear infinite, logoFadeInScale 900ms cubic-bezier(.23,1,.32,1.1) 200ms both;
-}
-
-.top-bar .time-select {
-  flex-direction: row;
-  gap: 8px;
-  align-items: center;
-}
-.top-bar .time-select button {
-  width: 72px;
-  padding: 6px 8px;
-  font-size: 0.9rem;
-  border-radius: 10px;
-}
-.top-bar .sound-picker {
-  flex-direction: row;
-  gap: 6px;
-  align-items: center;
-  justify-content: flex-end;
-}
-.top-bar .sound-picker button {
-  width: 36px;
-  height: 36px;
-  padding: 4px;
-}
-
-/* Responsive: mobile bar adapts to wrap and shrink */
-@media (max-width: 900px) {
-  .top-bar {
-    height: 48px;
-    padding: 0 6px;
-  }
-  .top-bar .logo-title {
-    font-size: 1.1rem;
-    padding: 0 6px;
-  }
-  .top-bar .time-select button {
-    width: 48px;
-    font-size: 0.7rem;
-    padding: 2px 4px;
-    border-radius: 6px;
-  }
-  .top-bar .sound-picker button {
-    width: 24px;
-    height: 24px;
-    padding: 2px;
-  }
-}
 
 /* =====================
    Reset & Base Styles
@@ -152,7 +62,7 @@ video {
    Top Controls Grid
 ====================== */
 .top-controls {
-  position: absolute; top: 150px; left: 0; width: 100%; z-index: 11;
+  position: absolute; top: 88px; left: 0; width: 100%; z-index: 11;
   display: grid; grid-template-columns: 1fr auto 1fr; align-items: start; padding: 0 28px;
   gap: 0;
 }
@@ -199,42 +109,30 @@ video {
   z-index: 2;
   width: 48px;
   height: 48px;
-  content: '';
-  display: block;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 14px 0 14px 24px;
-  border-color: transparent transparent transparent #ff8a65;
-  border-radius: 3px;
-  transition: all 0.2s;
-}
-
-.play::before {
-  content: '';
-  display: block;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 12px 0 12px 22px;
-  border-color: transparent transparent transparent #ff8a65;
-  border-radius: 3px;
-  transition: all 0.2s;
-}
-
-.play.paused::before {
-  /* Pause icon: two vertical rectangles */
-  content: '';
-  width: 18px;
-  height: 24px;
-  background:
-    linear-gradient(90deg, #ff8a65 0%, #ff8a65 40%, transparent 40%, transparent 60%, #ff8a65 60%, #ff8a65 100%);
-  border-radius: 3px;
+  border-radius: 50%;
+  background: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(255,138,101,0.12);
+  transition: transform .25s ease, background 0.2s;
   border: none;
-  margin-left: 0;
+  outline: none;
 }
 
 .play:active { transform: scale(.98); }
+
+/* Rectangle (pause) icon when paused */
+.play.paused::before {
+  border: none;
+  width: 18px;
+  height: 24px;
+  background:
+    linear-gradient(90deg, #ff8a65 40%, transparent 40%, transparent 60%, #ff8a65 60%);
+  margin-left: 0;
+  border-radius: 3px;
+}
 .time-display {
   margin-top: 8px; z-index: 2; color: #ff8a65; font-weight: 700; font-size: 1rem;
   background: rgba(255,255,255,0.18); border-radius: 8px; padding: 2px 10px;
