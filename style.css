@@ -31,20 +31,20 @@ body {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  max-width: 1200px;
+  max-width: 600px;
   margin: 0 auto;
-  padding: 12px 0 0 0;
+  padding: 8px 0 0 0;
 }
 .logo-title {
   position: static;
-  margin-bottom: 16px;
+  margin-bottom: 10px;
   top: unset;
   left: unset;
   transform: none;
   z-index: 21;
   padding: 0 16px;
   font-family: 'Lobster', cursive;
-  font-size: 2.2rem;
+  font-size: 2rem;
   font-weight: 400;
   letter-spacing: 2px;
   text-align: center;
@@ -99,12 +99,16 @@ body {
 ====================== */
 .player-container {
   grid-column: 2; position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center;
-  width: 120px; height: 120px; z-index: 12;
+  width: 88px; height: 88px; z-index: 12;
   background: rgba(255,255,255,0.10);
-  border-radius: 32px;
+  border-radius: 28px;
   box-shadow: 0 8px 32px rgba(255,138,101,0.12);
   transition: box-shadow 0.2s, background 0.2s;
-  margin: 0 16px;
+  margin: 12px 0 0 0;
+}
+.player-container svg {
+  height: 120px !important;
+  width: 120px !important;
 }
 .player-container svg {
   position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%) rotate(-90deg);
@@ -197,27 +201,28 @@ video {
 @media (max-width: 900px) {
   .top-bar-inner {
     flex-direction: column;
-    padding: 4px 0 0 0;
+    padding: 2px 0 0 0;
+    max-width: 98vw;
   }
   .logo-title {
     font-size: 1.1rem;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
     padding: 0 4px;
   }
   .top-controls {
     grid-template-columns: 1fr auto 1fr;
-    padding: 0 4px 8px 4px;
-    gap: 12px;
+    padding: 0 4px 6px 4px;
+    gap: 8px;
   }
-  .player-container { width: 60px; height: 60px; border-radius: 14px; margin: 0 6px; }
-  .player-container::before { width: 48px; height: 48px; border-radius: 8px; }
-  .player-container svg { height: 40px; width: 40px; }
-  .play { width: 24px; height: 24px; margin: 0 6px; }
-  .play::before { border-left: 8px solid #ff8a65; border-top: 6px solid transparent; border-bottom: 6px solid transparent; }
-  .time-select { gap: 8px; padding-right: 4px; }
-  .time-select button { width: 40px; padding: 2px; font-size: .65rem; }
-  .sound-grid button { width: 20px; height: 20px; }
-  .sound-grid { gap: 6px; padding: 4px 0; }
+  .player-container { width: 44px; height: 44px; border-radius: 10px; margin: 8px 0 0 0; }
+  .player-container::before { width: 32px; height: 32px; border-radius: 6px; }
+  .player-container svg { height: 32px !important; width: 32px !important; }
+  .play { width: 18px; height: 18px; margin: 0 4px; }
+  .play::before { border-left: 6px solid #ff8a65; border-top: 4px solid transparent; border-bottom: 4px solid transparent; }
+  .time-select { gap: 6px; padding-right: 2px; }
+  .time-select button { width: 32px; padding: 1px; font-size: .6rem; }
+  .sound-grid button { width: 16px; height: 16px; }
+  .sound-grid { gap: 4px; padding: 2px 0; }
 }
 
 /* =====================
