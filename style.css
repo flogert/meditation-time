@@ -94,32 +94,57 @@ video {
   box-shadow: 0 8px 32px rgba(255,138,101,0.12);
   transition: box-shadow 0.2s, background 0.2s;
 }
-.player-container::before {
-  content: '';
-  position: absolute;
-  top: 8px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 110px;
-  height: 110px;
-  clip-path: polygon(50% 0%,100% 100%,0% 100%);
-  background: linear-gradient(180deg, rgba(255,214,231,0.96), rgba(255,138,101,0.96));
-  border-radius: 22px;
-  box-shadow: 0 10px 30px rgba(255,138,101,0.20), inset 0 -6px 18px rgba(255,255,255,0.12);
-  z-index: 0;
-}
 .player-container svg {
   position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%) rotate(-90deg);
   pointer-events: none; height: 180px; width: 180px;
 }
 .track-outline circle { stroke: rgba(255,255,255,0.18); stroke-width: 20px; }
 .moving-outline circle { stroke-linecap: round; filter: drop-shadow(0 0 8px rgba(255,138,101,0.35)); transition: stroke-dashoffset .15s linear; }
+
+/* =====================
+   Play/Pause Button
+====================== */
 .play {
-  position: relative; z-index: 2; width: 48px; height: 48px; border-radius: 50%; background: #fff;
-  display: inline-flex; align-items: center; justify-content: center; cursor: pointer;
-  box-shadow: 0 6px 20px rgba(255,138,101,0.12); transition: transform .25s ease;
+  position: relative;
+  z-index: 2;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(255,138,101,0.12);
+  transition: transform .25s ease, background 0.2s;
+  border: none;
+  outline: none;
 }
 .play:active { transform: scale(.98); }
+
+/* Triangle (play) icon using pseudo-element */
+.play::before {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  border-left: 18px solid #ff8a65;
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+  margin-left: 4px;
+  transition: border 0.2s;
+}
+
+/* Rectangle (pause) icon when paused */
+.play.paused::before {
+  border: none;
+  width: 18px;
+  height: 24px;
+  background:
+    linear-gradient(90deg, #ff8a65 40%, transparent 40%, transparent 60%, #ff8a65 60%);
+  margin-left: 0;
+  border-radius: 3px;
+}
 .time-display {
   margin-top: 8px; z-index: 2; color: #ff8a65; font-weight: 700; font-size: 1rem;
   background: rgba(255,255,255,0.18); border-radius: 8px; padding: 2px 10px;
