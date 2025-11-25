@@ -20,12 +20,26 @@ body {
 }
 
 .logo-title {
-    position: absolute;
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Nunito', Arial, sans-serif;
+    }
     top: 20px;
     left: 20px;
     z-index: 3;
     color: #ff8a65;
     font-family: 'Lobster', cursive;
+
+    body {
+        background: #000;
+        min-height: 100vh;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+    }
     font-size: 2rem;
     font-weight: 400;
     text-shadow: 0 4px 15px rgba(255, 138, 101, 0.25);
@@ -33,6 +47,14 @@ body {
     background: rgba(255, 245, 238, 0.8);
     border-radius: 16px;
     padding: 8px 24px;
+
+    .app {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+    }
     box-shadow: 0 2px 12px rgba(255, 138, 101, 0.15);
     animation: logoFadeInScale 1s cubic-bezier(0.23, 1, 0.32, 1.1) 0.3s both;
 }
@@ -50,6 +72,23 @@ body {
         opacity: 1;
         transform: scale(1) rotate(0deg);
     }
+
+    .logo-title {
+        position: absolute;
+        top: 12px;
+        left: 16px;
+        z-index: 10;
+        color: #ff8a65;
+        font-family: 'Lobster', cursive;
+        font-size: 1.3rem;
+        font-weight: 400;
+        text-shadow: 0 2px 8px rgba(255, 138, 101, 0.18);
+        letter-spacing: 1px;
+        background: #fff;
+        border-radius: 8px;
+        padding: 4px 12px;
+        box-shadow: 0 1px 4px rgba(255, 138, 101, 0.10);
+    }
 }
 
 .vid-container {
@@ -60,12 +99,31 @@ body {
     height: 100%;
     z-index: -1;
     overflow: hidden;
+
+    .vid-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 1;
+        overflow: hidden;
+        border-radius: 0;
+    }
     border-radius: 48px;
 }
 
 video {
     width: 100%;
     height: 100%;
+
+    video {
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+        filter: brightness(1) contrast(1);
+        display: block;
+    }
     object-fit: cover;
     filter: brightness(0.9) contrast(1.1);
 }
@@ -83,6 +141,24 @@ video {
     border-radius: 0;
     box-shadow: none;
     padding: 0;
+
+    .player-container {
+        position: absolute;
+        top: 12px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: auto;
+        height: auto;
+        background: none;
+        border-radius: 0;
+        box-shadow: none;
+        padding: 0;
+    }
 }
 
 .time-select button {
@@ -93,6 +169,17 @@ video {
     border: none;
     cursor: pointer;
     border-radius: 20px;
+
+    .player-container svg {
+        position: relative;
+        top: 0;
+        left: 0;
+        transform: rotate(-90deg);
+        pointer-events: none;
+        height: 120px;
+        width: 120px;
+        filter: none;
+    }
     font-size: 0.9rem;
     font-weight: 700;
     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -106,6 +193,19 @@ video {
         opacity: 0;
         transform: scale(0.8) translateY(20px);
     }
+
+    .play {
+        width: 36px;
+        height: 36px;
+        cursor: pointer;
+        z-index: 11;
+        filter: none;
+        transition: transform 0.2s ease;
+        opacity: 1;
+        background: #fff;
+        border-radius: 50%;
+        box-shadow: 0 1px 4px rgba(255, 138, 101, 0.10);
+    }
     60% {
         opacity: 1;
         transform: scale(1.05) translateY(-5px);
@@ -118,6 +218,19 @@ video {
 
 .time-select button:hover {
     background: #ff8a65;
+
+    .time-display {
+        position: relative;
+        color: #ff8a65;
+        font-size: 1.1rem;
+        font-weight: 700;
+        text-shadow: none;
+        background: #fff;
+        border-radius: 8px;
+        padding: 2px 8px;
+        box-shadow: 0 1px 4px rgba(255, 138, 101, 0.10);
+        margin-top: 4px;
+    }
     color: #fff;
     transform: translateY(-8px) scale(1.08);
     box-shadow: 0 12px 32px rgba(255, 138, 101, 0.25);
@@ -132,6 +245,21 @@ video {
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+    .time-select {
+        position: absolute;
+        top: 12px;
+        right: 16px;
+        z-index: 10;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        align-items: flex-end;
+        background: none;
+        border-radius: 0;
+        box-shadow: none;
+        padding: 0;
+    }
     align-items: center;
     width: auto;
     height: auto;
@@ -147,6 +275,24 @@ video {
     left: 50%;
     transform: translate(-50%, -50%) rotate(-90deg);
     pointer-events: none;
+
+    .time-select button {
+        color: #ff8a65;
+        width: 80px;
+        padding: 6px;
+        background: #fff;
+        border: 2px solid #ff8a65;
+        cursor: pointer;
+        border-radius: 8px;
+        font-size: 0.85rem;
+        font-weight: 700;
+        transition: background 0.2s, color 0.2s;
+        box-shadow: 0 1px 4px rgba(255, 138, 101, 0.10);
+        outline: none;
+    }
+    .time-select button:focus {
+        outline: 2px solid #333;
+    }
     height: 200px;
     width: 200px;
     filter: drop-shadow(0 4px 20px rgba(255, 138, 101, 0.15));
@@ -160,6 +306,20 @@ video {
 .moving-outline circle {
     stroke-linecap: round;
     filter: drop-shadow(0 0 8px rgba(255, 138, 101, 0.4));
+
+    .sound-picker {
+        position: absolute;
+        top: 80px;
+        right: 16px;
+        z-index: 10;
+        display: flex;
+        flex-direction: row;
+        gap: 8px;
+        padding: 0;
+        background: none;
+        border-radius: 0;
+        box-shadow: none;
+    }
     transition: stroke-dashoffset 0.15s linear;
 }
 
@@ -174,53 +334,72 @@ video {
     background: rgba(255, 245, 238, 0.8);
     border-radius: 50%;
     box-shadow: 0 4px 20px rgba(255, 138, 101, 0.15);
-    animation: playerPopIn 1s cubic-bezier(0.23, 1, 0.32, 1.1) backwards;
-}
 
-.play:hover {
-    transform: scale(1.2);
-    opacity: 1;
-    background: #ff8a65;
-}
-
-@keyframes playerPopIn {
-    0% {
-        opacity: 0;
-        transform: scale(0.8) rotate(-30deg);
+    .sound-picker button {
+        border: none;
+        background: #fff;
+        cursor: pointer;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        padding: 4px;
+        transition: background 0.2s;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 1px 4px rgba(255, 138, 101, 0.10);
     }
-    60% {
-        opacity: 1;
-        transform: scale(1.1) rotate(10deg);
+    .sound-picker button:focus {
+        outline: 2px solid #333;
     }
-    100% {
-        opacity: 1;
-        transform: scale(1) rotate(0deg);
+
+    /* Responsive Design */
+    @media (max-width: 900px) {
+        .logo-title {
+            font-size: 1rem;
+            padding: 4px 8px;
+            top: 6px;
+            left: 6px;
+        }
+        .player-container {
+            top: 6px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .player-container svg {
+            height: 80px;
+            width: 80px;
+        }
+        .play {
+            width: 28px;
+            height: 28px;
+        }
+        .time-display {
+            font-size: 0.9rem;
+            padding: 2px 6px;
+        }
+        .time-select {
+            top: 6px;
+            right: 6px;
+            gap: 4px;
+        }
+        .time-select button {
+            width: 60px;
+            font-size: 0.7rem;
+            padding: 4px;
+            border-radius: 6px;
+        }
+        .sound-picker {
+            top: 60px;
+            right: 6px;
+            gap: 4px;
+        }
+        .sound-picker button {
+            width: 24px;
+            height: 24px;
+            padding: 2px;
+        }
     }
-}
-
-.time-display {
-    position: absolute;
-    bottom: 15%;
-    color: #ff8a65;
-    font-size: 2rem;
-    font-weight: 700;
-    text-shadow: 0 4px 16px rgba(255, 138, 101, 0.2);
-    background: rgba(255, 245, 238, 0.8);
-    border-radius: 12px;
-    padding: 6px 16px;
-    box-shadow: 0 4px 20px rgba(255, 138, 101, 0.15);
-}
-
-.sound-picker {
-    position: absolute;
-    top: 140px;
-    right: 20px;
-    z-index: 3;
-    display: flex;
-    flex-direction: row;
-    gap: 12px;
-    padding: 0;
-    background: none;
     border-radius: 0;
     box-shadow: none;
 }
