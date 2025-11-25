@@ -109,7 +109,7 @@ video {
   z-index: 2;
   width: 48px;
   height: 48px;
-  border-radius: 8px;
+  border-radius: 12px;
   background: #fff;
   display: inline-flex;
   align-items: center;
@@ -120,30 +120,30 @@ video {
   border: none;
   outline: none;
 }
-
-  /* Rectangle pause icon using pseudo-element */
 .play::before {
   content: '';
   display: block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 12px 0 12px 22px;
+  border-color: transparent transparent transparent #ff8a65;
+  border-radius: 3px;
+  transition: all 0.2s;
+}
+.play.paused::before {
+  /* Pause icon: two vertical rectangles */
+  content: '';
   width: 18px;
   height: 24px;
   background:
-    linear-gradient(90deg, #ff8a65 40%, transparent 40%, transparent 60%, #ff8a65 60%);
+    linear-gradient(90deg, #ff8a65 0%, #ff8a65 40%, transparent 40%, transparent 60%, #ff8a65 60%, #ff8a65 100%);
   border-radius: 3px;
+  border: none;
+  margin-left: 0;
 }
 
 .play:active { transform: scale(.98); }
-
-/* Rectangle (pause) icon when paused */
-.play.paused::before {
-  border: none;
-  width: 18px;
-  height: 24px;
-  background:
-    linear-gradient(90deg, #ff8a65 40%, transparent 40%, transparent 60%, #ff8a65 60%);
-  margin-left: 0;
-  border-radius: 3px;
-}
 .time-display {
   margin-top: 8px; z-index: 2; color: #ff8a65; font-weight: 700; font-size: 1rem;
   background: rgba(255,255,255,0.18); border-radius: 8px; padding: 2px 10px;
